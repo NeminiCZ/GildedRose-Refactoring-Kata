@@ -23,6 +23,14 @@ namespace csharp
                             Items[i].Quality = Items[i].Quality - 1;
                         }
                     }
+                    if (Items[i].Quality > 0)
+                    {
+                        if (!Items[i].Name.Contains("Sulfuras") && Items[i].Name.Contains("Conjured"))
+                        {
+                            Items[i].Quality = Items[i].Quality - 1;
+                        }
+                    }
+
                 }
                 else
                 {
@@ -65,6 +73,13 @@ namespace csharp
                             if (Items[i].Quality > 0)
                             {
                                 if (!Items[i].Name.Contains("Sulfuras"))
+                                {
+                                    Items[i].Quality = Items[i].Quality - 1;
+                                }
+                            }
+                            if (Items[i].Quality > 0)
+                            {
+                                if (!Items[i].Name.Contains("Sulfuras") && Items[i].Name.Contains("Conjured"))
                                 {
                                     Items[i].Quality = Items[i].Quality - 1;
                                 }
