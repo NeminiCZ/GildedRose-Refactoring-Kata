@@ -61,5 +61,30 @@ namespace csharp
             Assert.AreEqual(3, items[0].Quality);
         }
 
+        [Test]
+        public void TestQualityLess50()
+        {
+            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 49 } };
+            var app = new GildedRose(items);
+
+            app.UpdateQuality();
+
+            Assert.AreEqual("Aged Brie", items[0].Name);
+            Assert.AreEqual(1, items[0].SellIn);
+            Assert.AreEqual(50, items[0].Quality);
+
+            app.UpdateQuality();
+
+            Assert.AreEqual("Aged Brie", items[0].Name);
+            Assert.AreEqual(0, items[0].SellIn);
+            Assert.AreEqual(50, items[0].Quality);
+
+            app.UpdateQuality();
+
+            Assert.AreEqual("Aged Brie", items[0].Name);
+            Assert.AreEqual(-1, items[0].SellIn);
+            Assert.AreEqual(50, items[0].Quality);
+
+        }
     }
 }
