@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace csharp.Items
 {
-    class LegendaryItem
+    class LegendaryItem : IItems
     {
+        public string Name { get; set; }
+        public int SellIn { get; set; }
+        public int Quality { get; set; }
+        public void UpdateQuality()
+        {
+            Quality = 80;
+        }
     }
 }

@@ -8,5 +8,10 @@ namespace csharp.Items
 {
     interface IItems
     {
+        string Name { get; set; }
+        int SellIn { get; set; }
+        int Quality { get; set; }
+
+        void UpdateQuality();
     }
 }
