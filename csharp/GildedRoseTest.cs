@@ -156,5 +156,18 @@ namespace csharp
             Assert.AreEqual(0, items[0].Quality);
         }
 
+        [Test]
+        public void TestConjuredItem()
+        {
+            var items = new List<Item> { new Item { Name = "Conjured Mana Potion", SellIn = 5, Quality = 10 } };
+            var app = new GildedRose(items);
+
+            app.UpdateQuality();
+
+            Assert.AreEqual(4, items[0].SellIn);
+            Assert.AreEqual(8, items[0].Quality);
+        }
+
+
     }
 }
