@@ -14,7 +14,7 @@ namespace csharp.Items
         public void UpdateQuality()
         {
             SellIn = SellIn - 1;
-            Quality = Quality == 0 ? 0 : Quality - 1;
+            Quality = Quality == 0 ? 0 : SellIn >= 0 ? Quality - 1 : Quality - 2;
         }
     }
 }
