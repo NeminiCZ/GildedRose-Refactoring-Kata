@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp.Items
 {
-    interface IItems
+    public interface IItem
     {
         string Name { get; set; }
         int SellIn { get; set; }

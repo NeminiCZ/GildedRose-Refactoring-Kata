@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp.Items
 {
-    class ConjuredItem : IItems
+    class ConjuredItem : IItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }

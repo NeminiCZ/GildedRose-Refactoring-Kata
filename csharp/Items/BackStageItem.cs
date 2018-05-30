@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp.Items
 {
-    class BackStageItem : IItems
+    class BackStageItem : IItem
     {
         public string Name { get; set; }
         public int SellIn { get; set; }
