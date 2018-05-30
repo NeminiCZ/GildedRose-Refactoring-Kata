@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using csharp.Items;
 
 namespace csharp
 {
@@ -9,7 +10,7 @@ namespace csharp
         [Test]
         public void TestNormalItem()
         {
-            var items = new List<Item> { new Item { Name = "bread", SellIn = 2, Quality = 2 } };
+            var items = new List<IItem> { new NormalItem { Name = "bread", SellIn = 2, Quality = 2 } };
             var app = new GildedRose(items);
             app.UpdateQuality();
 
@@ -21,7 +22,7 @@ namespace csharp
         [Test]
         public void TestNormalItemSellInExpired()
         {
-            var items = new List<Item> { new Item { Name = "bread", SellIn = 0, Quality = 3 } };
+            var items = new List<IItem> { new NormalItem { Name = "bread", SellIn = 0, Quality = 3 } };
             var app = new GildedRose(items);
             app.UpdateQuality();
 
@@ -33,7 +34,7 @@ namespace csharp
         [Test]
         public void TestNormalItemQualityExpired()
         {
-            var items = new List<Item> { new Item { Name = "bread", SellIn = 2, Quality = 0 } };
+            var items = new List<IItem> { new NormalItem { Name = "bread", SellIn = 2, Quality = 0 } };
             var app = new GildedRose(items);
             app.UpdateQuality();
 
@@ -45,7 +46,7 @@ namespace csharp
         [Test]
         public void TestAgedBrie()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 1 } };
+            var items = new List<IItem> { new AgedBrieItem { Name = "Aged Brie", SellIn = 1, Quality = 1 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -64,7 +65,7 @@ namespace csharp
         [Test]
         public void TestQualityLess50()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 49 } };
+            var items = new List<IItem> { new AgedBrieItem { Name = "Aged Brie", SellIn = 2, Quality = 49 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -90,7 +91,7 @@ namespace csharp
         [Test]
         public void TestSulfuras()
         {
-            var items = new List<Item> { new Item { Name = "Sulfuras", SellIn = 1, Quality = 80 } };
+            var items = new List<IItem> { new LegendaryItem { Name = "Sulfuras", SellIn = 1, Quality = 80 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -107,7 +108,7 @@ namespace csharp
         [Test]
         public void TestBackstagePassMore10Days()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes to a wow concert", SellIn = 12, Quality = 10 } };
+            var items = new List<IItem> { new BackStageItem { Name = "Backstage passes to a wow concert", SellIn = 12, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -120,7 +121,7 @@ namespace csharp
         [Test]
         public void TestBackstagePassLess10Days()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes to a wow concert", SellIn = 10, Quality = 10 } };
+            var items = new List<IItem> { new BackStageItem { Name = "Backstage passes to a wow concert", SellIn = 10, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -133,7 +134,7 @@ namespace csharp
         [Test]
         public void TestBackstagePassLess5Days()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes to a wow concert", SellIn = 5, Quality = 10 } };
+            var items = new List<IItem> { new BackStageItem { Name = "Backstage passes to a wow concert", SellIn = 5, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -146,7 +147,7 @@ namespace csharp
         [Test]
         public void TestBackstagePassOld()
         {
-            var items = new List<Item> { new Item { Name = "Backstage passes to a wow concert", SellIn = 0, Quality = 10 } };
+            var items = new List<IItem> { new BackStageItem { Name = "Backstage passes to a wow concert", SellIn = 0, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -159,7 +160,7 @@ namespace csharp
         [Test]
         public void TestConjuredItem()
         {
-            var items = new List<Item> { new Item { Name = "Conjured Mana Potion", SellIn = 5, Quality = 10 } };
+            var items = new List<IItem> { new ConjuredItem { Name = "Conjured Mana Potion", SellIn = 5, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
@@ -171,7 +172,7 @@ namespace csharp
         [Test]
         public void TestConjuredItemOld()
         {
-            var items = new List<Item> { new Item { Name = "Conjured Mana Potion", SellIn = 0, Quality = 10 } };
+            var items = new List<IItem> { new ConjuredItem { Name = "Conjured Mana Potion", SellIn = 0, Quality = 10 } };
             var app = new GildedRose(items);
 
             app.UpdateQuality();
