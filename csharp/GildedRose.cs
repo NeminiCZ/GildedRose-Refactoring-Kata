@@ -5,15 +5,15 @@ namespace csharp
 {
     public class GildedRose
     {
-        IList<Items.IItem> Items;
-        public GildedRose(IList<Items.IItem> Items)
+        private readonly IList<Items.IItem> _items;
+        public GildedRose(IList<Items.IItem> items)
         {
-            this.Items = Items;
+            this._items = items;
         }
 
         public void UpdateQuality()
         {
-            foreach (Items.IItem item in Items)
+            foreach (var item in _items)
             {
                 item.UpdateQuality();
             }    
